@@ -1,94 +1,98 @@
-# Proyecto-Aurelion-IBM-Guayerd
 
 ---
 
-### 📄 **Archivo: `Proyecto_Aurelion.md`**
-
-```markdown
-# 📄 Proyecto Aurelion — Análisis de Datos para la Optimización de Ventas  
-*Información del Alumno / Docente*
-
----
-
-## 📌 Información General
+## ✅ Información General
 
 - **Nombre del proyecto**: Tienda Aurelion  
-- **Alumno/a**: [Tu nombre completo]  
-- **Curso**: [Curso o materia]  
-- **Docente**: [Nombre del profesor/a]  
-- **Fecha de entrega**: [Fecha]  
+- **Alumno**: Lennin Billey Temoche Gómez  
+- **Curso**: Fundamentos de Inteligencia Artificial
+- **Camada**: 11 martes 
+- **Docente**: Mirta Gladys Julio  
+- **Fecha de entrega**: 25 de Octubre del 2025
 
 ---
 
 ## 1.1 Tema, Problema y Solución
 
-### 🎯 Tema  
-**Inteligencia Artificial para la optimización estratégica de ventas a partir del análisis integrado de datos comerciales en la tienda Aurelion.**
+### ✅ Tema  
+**Aplicación de Inteligencia Artificial para la optimización estratégica de ventas mediante el análisis integrado de datos comerciales en la tienda Aurelion.**
 
-### ⚠️ Problema  
-La tienda Aurelion recopila datos valiosos sobre clientes, productos y ventas, pero carece de un sistema para analizarlos de forma integrada. Esto genera tres problemas centrales:
+### ✅ Problema  
+La tienda Aurelion recopila una gran cantidad de datos sobre clientes, productos y ventas. Sin embargo, no cuenta con un sistema que permita analizarlos de forma integral, lo que genera los siguientes desafíos:
 
-1. **Desconocimiento del Cliente**: No se identifican patrones de compra, impidiendo reconocer quiénes son los clientes más valiosos o qué productos prefieren.
-2. **Estrategias de Venta Genéricas**: Las campañas de marketing y promociones se aplican a todos por igual, generando bajo retorno de inversión y oportunidades perdidas.
-3. **Ineficiencia Operativa**: Responder preguntas básicas como *“¿Cuál fue nuestro producto más vendido el mes pasado?”* requiere esfuerzo manual y consume tiempo valioso.
+1. **Desconocimiento del cliente**  
+   No se identifican patrones de compra, lo que impide reconocer a los clientes más valiosos y sus preferencias.
 
-En esencia, la empresa opera de forma **reactiva**, mirando el pasado sin una hoja de ruta clara para tomar decisiones proactivas que impulsen su crecimiento.
+2. **Estrategias de venta genéricas**  
+   Las campañas de marketing y promociones se aplican de forma uniforme, lo que reduce el retorno de inversión y genera oportunidades perdidas.
 
-### 💡 Solución  
-Desarrollar un **flujo de trabajo analítico automatizado en Python** que transforme los datos crudos en **conocimiento accionable**. Este flujo sigue 3 etapas clave:
+3. **Ineficiencia operativa**  
+   Consultas básicas como *“¿Cuál fue el producto más vendido el mes pasado?”* requieren procesos manuales que consumen tiempo y recursos.
 
-1. **Consolidación de Datos**: Unificación de las tablas de `Clientes`, `Productos`, `Ventas` y `Detalle de Venta` en un único DataFrame maestro, creando una visión 360° del negocio.
-2. **Análisis Descriptivo Automatizado**: Respuesta automática a preguntas de negocio clave:
-   - Top 10 productos más vendidos (cantidad e ingresos).
+La empresa opera de forma **reactiva**, sin una estrategia basada en datos que le permita tomar decisiones proactivas para impulsar su crecimiento.
+
+### ✅ Solución  
+Implementar un **flujo de trabajo analítico automatizado en Python** que convierta los datos crudos en **información accionable**. Este flujo consta de tres etapas principales:
+
+1. **Consolidación de datos**  
+   Integración de las tablas `Clientes`, `Productos`, `Ventas` y `Detalle de Venta` en un único DataFrame maestro, generando una visión 360° del negocio.
+
+2. **Análisis descriptivo automatizado**  
+   Generación automática de respuestas a preguntas clave del negocio:
+   - Top 10 productos más vendidos (por cantidad e ingresos).
    - Ranking de clientes más valiosos.
-   - Ventas por categoría y por ciudad.
-   - Evolución mensual de las ventas.
-3. **Fundamento para IA**: Este análisis descriptivo sentará las bases para futuras aplicaciones de Machine Learning (ej. segmentación de clientes con K-Means).
+   - Ventas por categoría y ciudad.
+   - Evolución mensual de ventas.
+
+3. **Base para modelos de IA**  
+   Este análisis servirá como punto de partida para futuras aplicaciones de Machine Learning, como la segmentación de clientes mediante algoritmos como K-Means.
 
 **Herramientas utilizadas**:  
-- **Python** con `pandas`, `matplotlib`, `seaborn`.  
-- **GitHub Copilot** como asistente de codificación para acelerar la escritura de código repetitivo y sugerir operaciones complejas en Pandas.
+- **Python**: `pandas`, `matplotlib`, `seaborn`  
+- **GitHub Copilot**: Asistente de codificación para acelerar el desarrollo y sugerir soluciones eficientes en el manejo de datos.
 
 ---
 
 ## 1.2 Dataset de Referencia
 
-### 🔍 Fuente  
-Datos proporcionados por la cátedra, en 4 archivos Excel (.xlsx):
-- `clientes.xlsx`
-- `productos.xlsx`
-- `ventas.xlsx`
+### ✅ Fuente  
+Datos proporcionados por la cátedra en formato Excel (.xlsx), distribuidos en cuatro archivos:
+
+- `clientes.xlsx`  
+- `productos.xlsx`  
+- `ventas.xlsx`  
 - `detalle_venta.xlsx`
 
-### 📊 Definición  
-El dataset representa un ecosistema de ventas minorista que captura las interacciones entre clientes y productos, permitiendo analizar:
-- **¿Qué?** → Productos vendidos  
-- **¿Quién?** → Clientes  
-- **¿Cuándo?** → Fecha de venta  
-- **¿Cómo?** → Medio de pago y cantidad
+### ✅ Descripción  
+El conjunto de datos representa un ecosistema de ventas minoristas, capturando las interacciones entre clientes y productos. Permite responder preguntas como:
 
-### 📏 Escala  
-Conjunto de datos de muestra, diseñado para desarrollo y prueba:
+- **¿Qué se vendió?** → Productos  
+- **¿Quién compró?** → Clientes  
+- **¿Cuándo?** → Fecha de la transacción  
+- **¿Cómo?** → Medio de pago y cantidad adquirida
 
-| Tabla | Registros |
-|-------|-----------|
-| Clientes | 100 |
-| Productos | 100 |
-| Ventas | 120 |
-| Detalle de Venta | 343 |
+### ✅ Escala del Dataset  
 
-### 🏗️ Estructura del Modelo  
-Se utiliza un **Modelo Estrella simplificado**:
-- **Tablas de Dimensión** (describen entidades):  
-  - `Clientes`  
-  - `Productos`  
-- **Tablas de Hechos** (registran eventos):  
-  - `Ventas`  
+TablaRegistrosClientes100| Productos         | 100       |
+| Ventas            | 120       |
+| Detalle de Venta  | 343       |
+
+### ✅ Modelo de Datos  
+Se emplea un **modelo estrella simplificado**, compuesto por:
+
+- **Tablas de dimensión** (describen entidades):
+  - `Clientes`
+  - `Productos`
+
+- **Tablas de hechos** (registran transacciones):
+  - `Ventas`
   - `Detalle de Venta`
 
 ---
 
-### 📋 Estructura Detallada de las Tablas
+
+
+### ✅ Estructura Detallada de las Tablas
 
 #### 1. Tabla de Dimensión: `CLIENTES`
 
@@ -131,13 +135,13 @@ Se utiliza un **Modelo Estrella simplificado**:
 | `Precio_Uni` | Decimal (Float) | Precio unitario al momento de la venta |
 | `Importe` | Decimal (Float) | Cálculo: `Cantidad * Precio_Uni` |
 
-> ✅ **Nota clave**: Los campos redundantes (`nom_cliente`, `email`, `Nom_Prod`) deben ignorarse en el análisis. Se usan solo los IDs para mantener la integridad referencial.
+> **Notas**: Los campos redundantes (`nom_cliente`, `email`, `Nom_Prod`) deben ignorarse o eliminarse en el análisis. Se usan solo los IDs para mantener la integridad referencial.
 
 ---
 
 ## 1.3 Información, Pasos, Pseudocódigo y Diagrama del Programa
 
-### 🧠 Descripción del Funcionamiento  
+### ✅ Descripción del Funcionamiento  
 El programa es un script en Python que automatiza el proceso de análisis de datos de la tienda Aurelion. Realiza:
 
 1. **Carga** de los 4 archivos Excel.
@@ -149,7 +153,7 @@ El programa es un script en Python que automatiza el proceso de análisis de dat
 
 Finalmente, presenta los resultados en consola y gráficos, sirviendo como base para decisiones estratégicas.
 
-### 🛠️ Pasos del Desarrollo
+### ✅ Pasos del Desarrollo
 
 1. **Cargar y Consolidar Datos**  
    Uso de `pandas.read_excel()` para cargar los archivos. Limpieza de nulos, eliminación de duplicados y unión de tablas mediante `merge()`.
@@ -176,7 +180,7 @@ Finalmente, presenta los resultados en consola y gráficos, sirviendo como base 
    - Generar plantillas de gráficos con `seaborn` y `matplotlib`.
    - Reducir errores de sintaxis en operaciones complejas.
 
-### 📜 Pseudocódigo (Completo)
+### ✅ Pseudocódigo (Completo)
 
 ```plaintext
 INICIO_PROGRAMA
@@ -284,31 +288,15 @@ MOSTRAR_GRAFICOS()
 FIN_PROGRAMA
 ```
 
-### 🖼️ Diagrama de Flujo (Resumen Visual)
+<h3>🖼️ Diagrama de Flujo (Resumen Visual)</h3>
+<p><em>Nota: El diagrama completo fue generado en PSeInt y se adjunta como imagen en el documento original. A continuación se presenta su estructura lógica:</em></p>
 
-> *Nota: El diagrama completo fue generado en PSeInt y se adjunta como imagen en el documento original. Aquí se presenta su estructura lógica:*
+<p align="center">
+  <a href="pseint1.png">
+    <img src="pseint1.png" alt="Diagrama de Flujo" width="500">
+  </a>
+</p>
 
-```plaintext
-INICIO
-   ↓
-IMPORTAR LIBRERÍAS (Pandas, Matplotlib)
-   ↓
-CARGAR 4 ARCHIVOS .XLSX → df_clientes, df_productos, df_ventas, df_detalle_venta
-   ↓
-LIMPIEZA DE DATOS (nulos, duplicados, tipos, columnas redundantes)
-   ↓
-UNIÓN DE TABLAS → df_master (Clientes + Ventas + Productos + Detalle)
-   ↓
-INGENIERÍA DE CARACTERÍSTICAS (AñoVenta, MesVenta, DiaSemanaVenta)
-   ↓
-EJECUTAR ANÁLISIS (6 preguntas de negocio)
-   ↓
-GENERAR 4 GRÁFICOS (barras, líneas, barras horizontales, pastel)
-   ↓
-MOSTRAR RESULTADOS EN CONSOLA Y GRÁFICOS
-   ↓
-FIN
-```
 
 ---
 
@@ -322,30 +310,27 @@ FIN
 | Generación de plantillas de gráficos con `sns.barplot()`, `plt.title()` | Permitió centrarse en personalización estética. |
 | Sugerencias de manejo de fechas con `pd.to_datetime()` | Mejoró la precisión en el análisis temporal. |
 
-### ❌ Sugerencias Descartadas
+### ✅ Sugerencias Descartadas
 
 | Sugerencia | Razón de Rechazo |
 |----------|------------------|
 | Uso de `lambda` o `list comprehensions` complejas para filtrado | Reducía legibilidad; se prefirió `.loc[]` y métodos explícitos de Pandas. |
 | Implementación de K-Means para segmentación de clientes | Fuera de alcance: el proyecto es de **análisis descriptivo**, no predictivo. |
 
-> ✅ **Filosofía de uso de Copilot**:  
-> *“No copiar, sino acelerar. No reemplazar el pensamiento, sino potenciarlo.”*
-
 ---
 
 ## 1.5 Programa en Python (Implementación en Jupyter Notebook)
 
-### 📁 Archivo: `proyecto_aurelion.ipynb`
+### Archivo: `proyecto_aurelion.ipynb`
 
-### 🧩 Funcionalidad  
+### ✅ Funcionalidad  
 El programa se implementa como un **Jupyter Notebook**, no como un script de consola. Esto permite:
 
 - Documentar cada paso con **celdas Markdown** (explicaciones).
 - Ejecutar **celdas de código individualmente** (Shift + Enter).
 - Ver resultados **en línea** (tablas, gráficos, resúmenes).
 
-### 💬 Interacción del Usuario
+### Interacción del Usuario
 
 1. **Leer la documentación** en celdas Markdown.
 2. **Ejecutar celdas de código en orden**.
@@ -354,7 +339,7 @@ El programa se implementa como un **Jupyter Notebook**, no como un script de con
    - `df.info()`
    - Gráficos integrados con `matplotlib`/`seaborn`.
 
-### 🌟 Ventajas del Enfoque Jupyter
+### Ventajas del script Notebook Jupyter
 
 | Ventaja | Descripción |
 |--------|-------------|
@@ -362,61 +347,6 @@ El programa se implementa como un **Jupyter Notebook**, no como un script de con
 | **Reproducibilidad** | Cualquier persona puede ejecutarlo paso a paso. |
 | **Exploración** | Ideal para validación, ajustes y presentaciones académicas. |
 | **Documentación** | Todo el análisis está registrado y explicado. |
-
----
-
-## 📎 Anexos
-
-### ✅ Pseudocódigo (Repetido para referencia completa)
-
-```plaintext
-INICIO_PROGRAMA
-
-// PASO 1: IMPORTACIÓN DE LIBRERÍAS
-IMPORTAR pandas
-IMPORTAR matplotlib.pyplot
-IMPORTAR seaborn
-
-// PASO 2: CARGA DE DATOS
-DEFINIR df_clientes = CARGAR_DATOS("clientes.xlsx")
-DEFINIR df_productos = CARGAR_DATOS("productos.xlsx")
-DEFINIR df_ventas = CARGAR_DATOS("ventas.xlsx")
-DEFINIR df_detalle_venta = CARGAR_DATOS("detalle_venta.xlsx")
-
-// PASO 3: LIMPIEZA
-PARA cada tabla EN [df_clientes, df_productos, df_ventas, df_detalle_venta]:
-    MOSTRAR información de la tabla
-    SI hay nulos → rellenar con 'Desconocido'
-    SI hay duplicados → eliminar
-FIN PARA
-
-CONVERTIR_A_FECHA(df_clientes['FechaDeAlta'])
-CONVERTIR_A_FECHA(df_ventas['Fecha'])
-ELIMINAR_COLUMNAS(df_ventas, ['nom_cliente', 'email'])
-ELIMINAR_COLUMNAS(df_detalle_venta, ['Nom_Prod'])
-
-// PASO 4: UNIÓN DE TABLAS
-DEFINIR df_detalle_completo = UNIR(df_detalle_venta, df_productos, en='id_Prod')
-DEFINIR df_ventas_detalle = UNIR(df_ventas, df_detalle_completo, en='id_Vta')
-DEFINIR df_master = UNIR(df_ventas_detalle, df_clientes, en='id_cliente')
-
-// PASO 5: INGENIERÍA DE CARACTERÍSTICAS
-df_master['AñoVenta'] = df_master['Fecha'].dt.year
-df_master['MesVenta'] = df_master['Fecha'].dt.month
-df_master['DiaSemanaVenta'] = df_master['Fecha'].dt.day_name()
-
-// PASO 6: ANÁLISIS (6 PREGUNTAS)
-// (Ver pseudocódigo completo arriba)
-
-// PASO 7: VISUALIZACIÓN
-CREAR_GRAFICO_DE_BARRAS(ventas_por_categoria_ordenado, "Ventas por Categoría")
-CREAR_GRAFICO_DE_LINEAS(ventas_por_mes, "Evolución de Ventas Mensuales")
-CREAR_GRAFICO_DE_BARRAS_HORIZONTALES(top_clientes_ordenado.head(10), "Top 10 Clientes")
-CREAR_GRAFICO_DE_TARTA(ventas_por_ciudad_ordenado.head(5), "Distribución por Ciudad")
-MOSTRAR_GRAFICOS()
-
-FIN_PROGRAMA
-```
 
 ---
 
@@ -428,22 +358,12 @@ Este flujo de trabajo es **escalable, reproducible y listo para integrar modelos
 
 ---
 
-> 📌 **Nota final**: Este informe está diseñado para ser entregado como documento PDF o impreso. El archivo `.ipynb` del proyecto debe acompañarlo como evidencia técnica.
+> ✅ **Nota final**: La documentación está acompañada por los archivos del proyecto en .docx, .pdf, .psc. El archivo `.ipynb` del proyecto también está incluido como evidencia técnica.
 ```
 
 ---
 
-### ✅ ¿Cómo descargarlo?
+### Próximos pasos
 
-1. **Selecciona todo el texto** desde `# 📄 Proyecto Aurelion...` hasta `> 📌 ...evidencia técnica.`.
-2. Abre tu editor de texto favorito (VS Code, Notepad++, Bloc de Notas, etc.).
-3. **Pega el contenido**.
-4. Ve a **Archivo → Guardar como...**
-5. Elige el nombre:  
-   **`Proyecto_Aurelion.md`**
-6. Asegúrate de que el tipo sea **“Todos los archivos”** (no “Documento de texto”).
-7. ¡Listo! Tienes tu informe en formato Markdown listo para entregar.
-
+Fase de predicción
 ---
-
-.
