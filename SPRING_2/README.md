@@ -1,5 +1,3 @@
----
-
 ## ✅ Información General
 
 - **Nombre del proyecto**: Tienda Aurelion  
