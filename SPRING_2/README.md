@@ -1,4 +1,3 @@
-
 ---
 
 ## ✅ Información General
@@ -8,7 +7,7 @@
 - **Curso**: Fundamentos de Inteligencia Artificial
 - **Camada**: 11 martes 
 - **Docente**: Mirta Gladys Julio  
-- **Fecha de entrega**: 25 de Octubre del 2025
+- **Fecha de entrega**: Noviembre del 2025
 
 ---
 
@@ -56,33 +55,46 @@ Implementar un **flujo de trabajo analítico automatizado en Python** que convie
 ## 1.2 Dataset de Referencia
 
 ### ✅ Fuente  
-Datos proporcionados por la cátedra en formato Excel (.xlsx), distribuidos en cuatro archivos:
+Datos proporcionados por la cátedra en formato Excel (.xlsx), distribuidos en siete archivos:
 
 - `clientes.xlsx`  
 - `productos.xlsx`  
 - `ventas.xlsx`  
-- `detalle_venta.xlsx`
+- `detalle_venta.xlsx`  
+- `sucursales.xlsx`  
+- `categorias.xlsx`  
+- `metodos_pago.xlsx`
 
 ### ✅ Descripción  
-El conjunto de datos representa un ecosistema de ventas minoristas, capturando las interacciones entre clientes y productos. Permite responder preguntas como:
+El conjunto de datos representa un ecosistema de ventas minoristas, capturando las interacciones entre clientes, productos, sucursales y métodos de pago. Permite responder preguntas como:
 
 - **¿Qué se vendió?** → Productos  
 - **¿Quién compró?** → Clientes  
 - **¿Cuándo?** → Fecha de la transacción  
+- **¿Dónde?** → Sucursal de la venta  
 - **¿Cómo?** → Medio de pago y cantidad adquirida
 
 ### ✅ Escala del Dataset  
 
-TablaRegistrosClientes100| Productos         | 100       |
-| Ventas            | 120       |
-| Detalle de Venta  | 343       |
+| Tabla              | Registros |
+|--------------------|-----------|
+| Clientes           | 150       |
+| Productos          | 120       |
+| Ventas             | 200       |
+| Detalle de Venta   | 500       |
+| Sucursales         | 10        |
+| Categorías         | 15        |
+| Métodos de Pago    | 5         |
 
 ### ✅ Modelo de Datos  
-Se emplea un **modelo estrella simplificado**, compuesto por:
+Se emplea un **modelo estrella expandido**, compuesto por:
 
 - **Tablas de dimensión** (describen entidades):
   - `Clientes`
   - `Productos`
+  - `Sucursales`
+  - `Categorías`
+  - `Métodos de Pago`
 
 - **Tablas de hechos** (registran transacciones):
   - `Ventas`
@@ -96,46 +108,66 @@ Se emplea un **modelo estrella simplificado**, compuesto por:
 
 #### 1. Tabla de Dimensión: `CLIENTES`
 
-| Columna | Tipo de Dato | Descripción |
-|--------|--------------|-------------|
-| `id_Cli` | Entero (Integer) | Identificador único (Clave Primaria) |
-| `Nombre` | Texto (String) | Nombre y apellido del cliente |
-| `Mail` | Texto (String) | Dirección de correo electrónico |
-| `Ciudad` | Texto (String) | Ciudad de residencia |
-| `FechaDeAlta` | Fecha (Datetime) | Fecha de registro del cliente |
+| Columna       | Tipo de Dato | Descripción                          |
+|---------------|--------------|--------------------------------------|
+| `id_Cli`      | Entero       | Identificador único (Clave Primaria) |
+| `Nombre`      | Texto        | Nombre y apellido del cliente        |
+| `Mail`        | Texto        | Dirección de correo electrónico      |
+| `Ciudad`      | Texto        | Ciudad de residencia                 |
+| `FechaDeAlta` | Fecha        | Fecha de registro del cliente        |
 
 #### 2. Tabla de Dimensión: `PRODUCTOS`
 
-| Columna | Tipo de Dato | Descripción |
-|--------|--------------|-------------|
-| `Id_Prod` | Entero (Integer) | Identificador único (Clave Primaria) |
-| `Nombre` | Texto (String) | Nombre comercial del producto |
-| `Categoría` | Texto (String) | Categoría a la que pertenece |
-| `PrecioUnitario` | Decimal (Float) | Precio unitario de venta |
+| Columna         | Tipo de Dato | Descripción                          |
+|-----------------|--------------|--------------------------------------|
+| `Id_Prod`       | Entero       | Identificador único (Clave Primaria) |
+| `Nombre`        | Texto        | Nombre comercial del producto        |
+| `Categoría`     | Texto        | Categoría a la que pertenece         |
+| `PrecioUnitario`| Decimal      | Precio unitario de venta             |
 
-#### 3. Tabla de Hechos: `VENTAS`
+#### 3. Tabla de Dimensión: `SUCURSALES`
 
-| Columna | Tipo de Dato | Descripción |
-|--------|--------------|-------------|
-| `id_Vta` | Entero (Integer) | Identificador único (Clave Primaria) |
-| `Fecha` | Fecha (Datetime) | Fecha y hora de la venta |
-| `id_cliente` | Entero (Integer) | Clave foránea a `CLIENTES` |
-| `nom_cliente` | Texto (String) | *Campo redundante* (evitar en análisis) |
-| `email` | Texto (String) | *Campo redundante* (evitar en análisis) |
-| `medio_pago` | Texto (String) | Método de pago (Tarjeta, Efectivo, etc.) |
+| Columna         | Tipo de Dato | Descripción                          |
+|-----------------|--------------|--------------------------------------|
+| `id_Sucursal`   | Entero       | Identificador único (Clave Primaria) |
+| `Nombre`        | Texto        | Nombre de la sucursal                |
+| `Ciudad`        | Texto        | Ciudad donde se encuentra            |
 
-#### 4. Tabla de Hechos: `DETALLE_DE_VENTA`
+#### 4. Tabla de Dimensión: `CATEGORÍAS`
 
-| Columna | Tipo de Dato | Descripción |
-|--------|--------------|-------------|
-| `id_Vta` | Entero (Integer) | Clave foránea a `VENTAS` |
-| `id_Prod` | Entero (Integer) | Clave foránea a `PRODUCTOS` |
-| `Nom_Prod` | Texto (String) | *Campo redundante* (evitar en análisis) |
-| `Cantidad` | Entero (Integer) | Número de unidades vendidas |
-| `Precio_Uni` | Decimal (Float) | Precio unitario al momento de la venta |
-| `Importe` | Decimal (Float) | Cálculo: `Cantidad * Precio_Uni` |
+| Columna         | Tipo de Dato | Descripción                          |
+|-----------------|--------------|--------------------------------------|
+| `id_Categoria`  | Entero       | Identificador único (Clave Primaria) |
+| `Nombre`        | Texto        | Nombre de la categoría               |
 
-> **Notas**: Los campos redundantes (`nom_cliente`, `email`, `Nom_Prod`) deben ignorarse o eliminarse en el análisis. Se usan solo los IDs para mantener la integridad referencial.
+#### 5. Tabla de Dimensión: `MÉTODOS_DE_PAGO`
+
+| Columna         | Tipo de Dato | Descripción                          |
+|-----------------|--------------|--------------------------------------|
+| `id_Metodo`     | Entero       | Identificador único (Clave Primaria) |
+| `Nombre`        | Texto        | Nombre del método de pago            |
+
+#### 6. Tabla de Hechos: `VENTAS`
+
+| Columna         | Tipo de Dato | Descripción                          |
+|-----------------|--------------|--------------------------------------|
+| `id_Vta`        | Entero       | Identificador único (Clave Primaria) |
+| `Fecha`         | Fecha        | Fecha y hora de la venta             |
+| `id_cliente`    | Entero       | Clave foránea a `CLIENTES`           |
+| `id_Sucursal`   | Entero       | Clave foránea a `SUCURSALES`         |
+| `medio_pago`    | Texto        | Método de pago (Tarjeta, Efectivo)   |
+
+#### 7. Tabla de Hechos: `DETALLE_DE_VENTA`
+
+| Columna         | Tipo de Dato | Descripción                          |
+|-----------------|--------------|--------------------------------------|
+| `id_Vta`        | Entero       | Clave foránea a `VENTAS`             |
+| `id_Prod`       | Entero       | Clave foránea a `PRODUCTOS`          |
+| `Cantidad`      | Entero       | Número de unidades vendidas          |
+| `Precio_Uni`    | Decimal      | Precio unitario al momento de venta  |
+| `Importe`       | Decimal      | Cálculo: `Cantidad * Precio_Uni`     |
+
+> **Notas**: Los campos redundantes deben ignorarse o eliminarse en el análisis. Se usan solo los IDs para mantener la integridad referencial.
 
 ---
 
@@ -144,7 +176,7 @@ Se emplea un **modelo estrella simplificado**, compuesto por:
 ### ✅ Descripción del Funcionamiento  
 El programa es un script en Python que automatiza el proceso de análisis de datos de la tienda Aurelion. Realiza:
 
-1. **Carga** de los 4 archivos Excel.
+1. **Carga** de los 7 archivos Excel.
 2. **Limpieza** de datos (nulos, duplicados, tipos de datos).
 3. **Unificación** en una tabla maestra (`df_master`).
 4. **Ingeniería de características** (extracción de año, mes, día de semana).
@@ -198,11 +230,14 @@ DEFINIR df_clientes = CARGAR_DATOS("ruta/a/clientes.xlsx")
 DEFINIR df_productos = CARGAR_DATOS("ruta/a/productos.xlsx")
 DEFINIR df_ventas = CARGAR_DATOS("ruta/a/ventas.xlsx")
 DEFINIR df_detalle_venta = CARGAR_DATOS("ruta/a/detalle_venta.xlsx")
+DEFINIR df_sucursales = CARGAR_DATOS("ruta/a/sucursales.xlsx")
+DEFINIR df_categorias = CARGAR_DATOS("ruta/a/categorias.xlsx")
+DEFINIR df_metodos_pago = CARGAR_DATOS("ruta/a/metodos_pago.xlsx")
 
 // =================================================================
 // PASO 3: EXPLORACIÓN Y LIMPIEZA DE DATOS (EDA)
 // =================================================================
-PARA CADA tabla EN [df_clientes, df_productos, df_ventas, df_detalle_venta]:
+PARA CADA tabla EN [df_clientes, df_productos, df_ventas, df_detalle_venta, df_sucursales, df_categorias, df_metodos_pago]:
     MOSTRAR "Información de la tabla:" + nombre_de_la_tabla
     MOSTRAR PRIMERAS_FILAS(tabla)
     MOSTRAR INFO_GENERAL(tabla)
@@ -359,11 +394,9 @@ Este flujo de trabajo es **escalable, reproducible y listo para integrar modelos
 ---
 
 > ✅ **Nota final**: La documentación está acompañada por los archivos del proyecto en .docx, .pdf, .psc. El archivo `.ipynb` del proyecto también está incluido como evidencia técnica.
-```
 
 ---
 
 ### Próximos pasos
 
 Fase de predicción
----
