@@ -55,15 +55,15 @@ Implementar un **flujo de trabajo analítico automatizado en Python** que convie
 ## 1.2 Dataset de Referencia
 
 ### ✅ Fuente  
-Datos proporcionados por la cátedra en formato Excel (.xlsx), distribuidos en siete archivos:
+Los datos proporcionados por la cátedra en formato Excel (.xlsx), fueron expandidos y distribuidos en siete archivos:
 
-- `clientes.xlsx`  
-- `productos.xlsx`  
-- `ventas.xlsx`  
-- `detalle_venta.xlsx`  
-- `sucursales.xlsx`  
-- `categorias.xlsx`  
-- `metodos_pago.xlsx`
+- `clientes_expanded.xlsx`  
+- `productos_expanded.xlsx`  
+- `ventas_expanded.xlsx`  
+- `detalle_ventas_expanded.xlsx`  
+- `sucursales_expanded.xlsx`  
+- `vendedores_expanded.xlsx`  
+- `medios_pago_expanded.xlsx`
 
 ### ✅ Descripción  
 El conjunto de datos representa un ecosistema de ventas minoristas, capturando las interacciones entre clientes, productos, sucursales y métodos de pago. Permite responder preguntas como:
@@ -76,15 +76,15 @@ El conjunto de datos representa un ecosistema de ventas minoristas, capturando l
 
 ### ✅ Escala del Dataset  
 
-| Tabla              | Registros |
-|--------------------|-----------|
-| Clientes           | 150       |
-| Productos          | 120       |
-| Ventas             | 200       |
-| Detalle de Venta   | 500       |
-| Sucursales         | 10        |
-| Categorías         | 15        |
-| Métodos de Pago    | 5         |
+| Tabla                 | Registros |
+|-----------------------|-----------|
+| clientes_expanded     | 100       |
+| productos_expanded    | 100       |
+| ventas_expanded       | 720       |
+| detalle_ventas_expanded| 2016     |
+| sucursales_expanded   | 6         |
+| vendedores_expanded   | 36        |
+| medios_pago_expanded  | 4         |
 
 ### ✅ Modelo de Datos  
 Se emplea un **modelo estrella expandido**, compuesto por:
@@ -215,112 +215,108 @@ Finalmente, presenta los resultados en consola y gráficos, sirviendo como base 
 ### ✅ Pseudocódigo (Completo)
 
 ```plaintext
-INICIO_PROGRAMA
+dame el codigo para seinpt : INICIO_PROGRAMA
 
-// =================================================================
-// PASO 1: CONFIGURACIÓN E IMPORTACIÓN DE LIBRERÍAS
-// =================================================================
-IMPORTAR librería para manipulación de datos (ej. Pandas)
-IMPORTAR librería para visualización (ej. Matplotlib, Seaborn)
+// ============================================
+// PASO 1: CONFIGURACIÓN DEL ENTORNO
+// ============================================
+IMPORTAR librerías necesarias:
+    - pandas
+    - matplotlib
+    - seaborn
+    - numpy (opcional para operaciones estadísticas)
 
-// =================================================================
+// ============================================
 // PASO 2: CARGA DE DATOS
-// =================================================================
-DEFINIR df_clientes = CARGAR_DATOS("ruta/a/clientes.xlsx")
-DEFINIR df_productos = CARGAR_DATOS("ruta/a/productos.xlsx")
-DEFINIR df_ventas = CARGAR_DATOS("ruta/a/ventas.xlsx")
-DEFINIR df_detalle_venta = CARGAR_DATOS("ruta/a/detalle_venta.xlsx")
-DEFINIR df_sucursales = CARGAR_DATOS("ruta/a/sucursales.xlsx")
-DEFINIR df_categorias = CARGAR_DATOS("ruta/a/categorias.xlsx")
-DEFINIR df_metodos_pago = CARGAR_DATOS("ruta/a/metodos_pago.xlsx")
+// ============================================
+CARGAR los siguientes DataFrames desde archivo o ruta:
+    - clientes_expanded
+    - productos_expanded
+    - ventas_expanded
+    - detalle_ventas_expanded
+    - medios_pago_expanded
+    - sucursales_expanded
+    - vendedores_expanded
 
-// =================================================================
-// PASO 3: EXPLORACIÓN Y LIMPIEZA DE DATOS (EDA)
-// =================================================================
-PARA CADA tabla EN [df_clientes, df_productos, df_ventas, df_detalle_venta, df_sucursales, df_categorias, df_metodos_pago]:
-    MOSTRAR "Información de la tabla:" + nombre_de_la_tabla
-    MOSTRAR PRIMERAS_FILAS(tabla)
-    MOSTRAR INFO_GENERAL(tabla)
-
-    SI HAY_NULOS(tabla):
-        MOSTRAR "Se encontraron valores nulos en " + nombre_de_la_tabla
-        RELLENAR_NULOS(tabla['columna_con_nulos'], con_valor='Desconocido')
-    FIN SI
-
-    SI HAY_DUPLICADOS(tabla):
-        MOSTRAR "Se encontraron filas duplicadas en " + nombre_de_la_tabla
-        ELIMINAR_DUPLICADOS(tabla)
-    FIN SI
+// ============================================
+// PASO 3: EXPLORACIÓN Y LIMPIEZA DE DATOS
+// ============================================
+PARA cada tabla EN la lista de DataFrames:
+    MOSTRAR columna, tipos de datos y valores nulos
+    SI existen valores nulos:
+        APLICAR estrategia de limpieza (rellenar, eliminar filas, etc.)
+    SI existen duplicados:
+        ELIMINAR duplicados si corresponde
 FIN PARA
 
-// Limpieza específica
-CONVERTIR_A_FECHA(df_clientes['FechaDeAlta'])
-CONVERTIR_A_FECHA(df_ventas['Fecha'])
+CONVERTIR columnas de fechas (fecha, fecha_alta, fecha_ingreso) al tipo datetime
 
-// Eliminar columnas redundantes
-ELIMINAR_COLUMNAS(df_ventas, ['nom_cliente', 'email'])
-ELIMINAR_COLUMNAS(df_detalle_venta, ['Nom_Prod'])
+// ============================================
+// PASO 4: MODELADO Y UNIÓN DE LOS DATOS
+// ============================================
+// Se realizarán las uniones necesarias para formar un DataFrame maestro
 
-// =================================================================
-// PASO 4: UNIÓN DE TABLAS (MERGE / JOIN)
-// =================================================================
-DEFINIR df_detalle_completo = UNIR(df_detalle_venta, df_productos, en='id_Prod')
-DEFINIR df_ventas_detalle = UNIR(df_ventas, df_detalle_completo, en='id_Vta')
-DEFINIR df_master = UNIR(df_ventas_detalle, df_clientes, en='id_cliente')
+UNIR detalle_ventas_expanded CON productos_expanded mediante id_producto ⇒ df_dv_prod
+UNIR df_dv_prod CON ventas_expanded mediante id_venta ⇒ df_ventas_completas
+UNIR df_ventas_completas CON clientes_expanded mediante id_cliente ⇒ df_vtas_clientes
+UNIR df_vtas_clientes CON sucursales_expanded mediante id_sucursal ⇒ df_vtas_sucursal
+UNIR df_vtas_sucursal CON vendedores_expanded mediante id_vendedor ⇒ df_vtas_vendedor
+UNIR df_vtas_vendedor CON medios_pago_expanded mediante id_medio_pago ⇒ df_master
 
-MOSTRAR "Vista previa de la tabla maestra unificada:"
-MOSTRAR PRIMERAS_FILAS(df_master)
+// df_master contendrá ahora información consolidada de cliente, producto, venta, sucursal, vendedor y medio de pago
 
-// =================================================================
+// ============================================
 // PASO 5: INGENIERÍA DE CARACTERÍSTICAS (FEATURE ENGINEERING)
-// =================================================================
-EXTRAER AÑO de df_master['Fecha'] → nueva columna 'AñoVenta'
-EXTRAER MES de df_master['Fecha'] → nueva columna 'MesVenta'
-EXTRAER DÍA_DE_SEMANA de df_master['Fecha'] → nueva columna 'DiaSemanaVenta'
+// ============================================
+CREAR nuevas columnas:
+    - Año de venta (a partir de fecha)
+    - Mes de venta
+    - Día de la semana
+    - Rango_etario_categorizado (opcional, basado en edad_rango)
+    - Descuento_aplicado_pct_categorizado (segmentar nivel de descuentos)
+    - Monto_final = subtotal - (subtotal * descuento_aplicado_pct)
 
-// =================================================================
-// PASO 6: ANÁLISIS DE DATOS (RESPONDER PREGUNTAS DE NEGOCIO)
-// =================================================================
+// ============================================
+// PASO 6: ANÁLISIS DE DATOS Y MÉTRICAS CLAVE
+// ============================================
 
-// Pregunta 1: Top 10 productos más vendidos (cantidad)
-DEFINIR top_productos_cantidad = df_master.AGRUPAR_POR('Nom_Prod').SUMAR('Cantidad')
-DEFINIR top_productos_cantidad_ordenado = ORDENAR(top_productos_cantidad, por='Cantidad', descendente=VERDADERO)
-MOSTRAR "Top 10 productos más vendidos por cantidad:", top_productos_cantidad_ordenado.PRIMEROS(10)
+// ANÁLISIS DE PRODUCTOS
+CALCULAR: Productos más vendidos (por cantidad total)
+CALCULAR: Productos con mayor facturación (por subtotal o monto_final)
+CALCULAR: Categorías y subcategorías más populares
 
-// Pregunta 2: Top 10 productos con mayores ingresos
-DEFINIR top_productos_ingresos = df_master.AGRUPAR_POR('Nom_Prod').SUMAR('Importe')
-DEFINIR top_productos_ingresos_ordenado = ORDENAR(top_productos_ingresos, por='Importe', descendente=VERDADERO)
-MOSTRAR "Top 10 productos con mayores ingresos:", top_productos_ingresos_ordenado.PRIMEROS(10)
+// ANÁLISIS DE CLIENTES
+CALCULAR: Clientes que más compran (por monto_total)
+CALCULAR: Distribución por género, ciudad, edad
+CALCULAR: Clientes inactivos vs activos
 
-// Pregunta 3: Ventas por categoría
-DEFINIR ventas_por_categoria = df_master.AGRUPAR_POR('Categoría').SUMAR('Importe')
-DEFINIR ventas_por_categoria_ordenado = ORDENAR(ventas_por_categoria, por='Importe', descendente=VERDADERO)
-MOSTRAR "Ventas totales por categoría:", ventas_por_categoria_ordenado
+// ANÁLISIS DE VENTAS
+ANALIZAR: Evolución de ventas por mes
+ANALIZAR: Días de la semana con mayor volumen de ventas
+ANALIZAR: Comparativa monto_bruto vs monto_neto, con descuentos
 
-// Pregunta 4: Top 10 clientes por valor de compra
-DEFINIR top_clientes = df_master.AGRUPAR_POR(['id_cliente', 'Nombre']).SUMAR('Importe')
-DEFINIR top_clientes_ordenado = ORDENAR(top_clientes, por='Importe', descendente=VERDADERO)
-MOSTRAR "Top 10 clientes por valor de compra:", top_clientes_ordenado.PRIMEROS(10)
+// ANÁLISIS DE SUCURSALES Y VENDEDORES
+CALCULAR: Ranking sucursales por ingresos
+CALCULAR: Vendedores con mayor volumen de ventas
+CALCULAR: Productividad media por vendedor
 
-// Pregunta 5: Evolución de ventas por mes
-DEFINIR ventas_por_mes = df_master.AGRUPAR_POR(['AñoVenta', 'MesVenta']).SUMAR('Importe')
-MOSTRAR "Evolución de ventas por mes:", ventas_por_mes
+// ANÁLISIS DE MEDIOS DE PAGO
+CALCULAR: Proporción de medios de pago utilizados
 
-// Pregunta 6: Top 5 ciudades por volumen de ventas
-DEFINIR ventas_por_ciudad = df_master.AGRUPAR_POR('Ciudad').SUMAR('Importe')
-DEFINIR ventas_por_ciudad_ordenado = ORDENAR(ventas_por_ciudad, por='Importe', descendente=VERDADERO)
-MOSTRAR "Top 5 ciudades por volumen de ventas:", ventas_por_ciudad_ordenado.PRIMEROS(5)
+// ============================================
+// PASO 7: VISUALIZACIONES Y TABLEROS
+// ============================================
+GENERAR gráficos:
+    - Barras horizontales (Top productos, Top clientes)
+    - Torta (distribución medios de pago, productos por categoría)
+    - Serie de tiempo (ventas por mes)
+    - Calor o heatmap (ventas por sucursal y mes)
+    - Boxplot (descuentos distribuidos por categoría o ciudad)
 
-// =================================================================
-// PASO 7: VISUALIZACIÓN DE RESULTADOS
-// =================================================================
-CREAR_GRAFICO_DE_BARRAS(datos=ventas_por_categoria_ordenado, titulo="Ventas por Categoría")
-CREAR_GRAFICO_DE_LINEAS(datos=ventas_por_mes, titulo="Evolución de Ventas Mensuales")
-CREAR_GRAFICO_DE_BARRAS_HORIZONTALES(datos=top_clientes_ordenado.PRIMEROS(10), titulo="Top 10 Clientes")
-CREAR_GRAFICO_DE_TARTA(datos=ventas_por_ciudad_ordenado.PRIMEROS(5), titulo="Distribución de Ventas por Ciudad")
-MOSTRAR_GRAFICOS()
-
-FIN_PROGRAMA
+// ============================================
+// FIN DEL PROGRAMA
+// ============================================
+FINALIZAR_PROGRAMA
 ```
 
 <h3>🖼️ Diagrama de Flujo (Resumen Visual)</h3>
