@@ -72,10 +72,12 @@ Algoritmo ANALISIS_DATOS_AURELION
 	// ============================================
 	Escribir 'Generando gráficos:'
 	Escribir '- Barras horizontales'
-	Escribir '- Gráfico de torta'
+	Escribir '- RFM'
+	Escribir '- Box plot'
+	Escribir '- Violin plot'
+	Escribir 'Intervalos de Confianza'
 	Escribir '- Series de tiempo'
 	Escribir '- Heatmap'
-	Escribir '- Boxplot'
 	// ============================================
 	// FIN DEL PROGRAMA
 	// ============================================

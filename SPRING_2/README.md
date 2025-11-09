@@ -1,18 +1,27 @@
-## ✅ Información General
+---
+title: "Reporte del Proyecto"
+author: "Lennin"
+format:
+  pdf: default
+---
 
-- **Nombre del proyecto**: Tienda Aurelion  
-- **Alumno**: Lennin Billey Temoche Gómez  
+## ✅ Proyecto Aurelion – Análisis Inteligente de Ventas
+**Fundamentos de Inteligencia Artificial — IBM SkillsBuild**
+ 
+## **Grupo 06**   
 - **Curso**: Fundamentos de Inteligencia Artificial
 - **Camada**: 11 martes 
 - **Docente**: Mirta Gladys Julio  
-- **Fecha de entrega**: Noviembre del 2025
+- **Fecha de entrega**: 09 de Noviembre de 2025
 
 ---
 
 ## 1.1 Tema, Problema y Solución
 
 ### ✅ Tema  
-**Aplicación de Inteligencia Artificial para la optimización estratégica de ventas mediante el análisis integrado de datos comerciales en la tienda Aurelion.**
+**Aplicación de técnicas de análisis de datos e Inteligencia Artificial para la optimización estratégica de ventas mediante el análisis integrado de datos comerciales en la tienda Aurelion.**
+
+El proyecto **“Tienda Aurelion”** evidencia cómo el análisis de datos y la estadística aplicada pueden convertir una operación tradicional de ventas en una **gestión estratégica basada en datos**. Durante la primera etapa (Spring 1), se desarrolló un proceso completo de ingestión, limpieza, integración y enriquecimiento de datos, consolidando diversas fuentes en un único modelo analítico `df_master`. Esto permitió comprender el estado actual del negocio, identificar patrones clave y responder preguntas fundamentales relacionadas con ventas, clientes, productos y sucursales.En la segunda etapa (Spring 2), se incorporó un análisis estadístico exhaustivo con el fin de profundizar en el comportamiento de las variables numéricas y validar hallazgos mediante herramientas cuantitativas. Se aplicaron técnicas como estadística descriptiva, detección de outliers, análisis de correlaciones, cálculo de intervalos de confianza y segmentación RFM.Estos análisis proporcionaron insights valiosos para la toma de decisiones estratégicas, permitiendo a la tienda Aurelion optimizar sus operaciones comerciales y focalizar esfuerzos en los segmentos de mayor valor.
 
 ### ✅ Problema  
 La tienda Aurelion recopila una gran cantidad de datos sobre clientes, productos y ventas. Sin embargo, no cuenta con un sistema que permita analizarlos de forma integral, lo que genera los siguientes desafíos:
@@ -99,8 +108,6 @@ Se emplea un **modelo estrella expandido**, compuesto por:
   - `Detalle de Venta`
 
 ---
-
-
 
 ### ✅ Estructura Detallada de las Tablas
 
@@ -310,15 +317,26 @@ CALCULAR: Productividad media por vendedor
 // ANÁLISIS DE MEDIOS DE PAGO
 CALCULAR: Proporción de medios de pago utilizados
 
+// ANÁLISIS ESTADÍSTICO AVANZADO
+CALCULAR: Estadísticas descriptivas (media, mediana, moda, desviación estándar)
+CALCULAR: Recencia, Frecuencia, Valor Monetario para cada cliente
+SEGMENTAR: Clientes en grupos RFM (Top, Medio, Bajo)
+cALCULAR: Distribución de variables numéricas (skewness, kurtosis)
+CALCULAR: Correlaciones (Pearson, Spearman) entre variables numéricas
+DETECTAR: Outliers mediante IQR y Z-score
+CALCULAR: Intervalos de confianza para montos de venta
+
 // ============================================
 // PASO 7: VISUALIZACIONES Y TABLEROS
 // ============================================
 GENERAR gráficos:
     - Barras horizontales (Top productos, Top clientes)
-    - Torta (distribución medios de pago, productos por categoría)
+    - Histograma (distribución medios de pago, productos por categoría)
     - Serie de tiempo (ventas por mes)
     - Calor o heatmap (ventas por sucursal y mes)
-    - Boxplot (descuentos distribuidos por categoría o ciudad)
+    - Boxplot (variables numéricas distribución y outliers)
+    - Violin plot (variables numéricas distribución y outliers)
+    - rfm scatter plot (segmentación RFM)
 
 // ============================================
 // FIN DEL PROGRAMA
@@ -330,8 +348,8 @@ FINALIZAR_PROGRAMA
 <p><em>Nota: El diagrama completo fue generado en PSeInt y se adjunta como imagen en el documento original. A continuación se presenta su estructura lógica:</em></p>
 
 <p align="center">
-  <a href="pseint1.png">
-    <img src="pseint1.png" alt="Diagrama de Flujo" width="500">
+  <a href="Aurelion_pseint.png">
+    <img src="Aurelion_pseint.png" alt="Diagrama de Flujo" width="500">
   </a>
 </p>
 
@@ -353,13 +371,13 @@ FINALIZAR_PROGRAMA
 | Sugerencia | Razón de Rechazo |
 |----------|------------------|
 | Uso de `lambda` o `list comprehensions` complejas para filtrado | Reducía legibilidad; se prefirió `.loc[]` y métodos explícitos de Pandas. |
-| Implementación de K-Means para segmentación de clientes | Fuera de alcance: el proyecto es de **análisis descriptivo**, no predictivo. |
+| Implementación de K-Means para segmentación de clientes | Fuera de alcance: en esta etapa el proyecto es de **análisis descriptivo**, no predictivo. |
 
 ---
 
 ## 1.5 Programa en Python (Implementación en Jupyter Notebook)
 
-### Archivo: `proyecto_aurelion.ipynb`
+### Archivo: `Proyecto_Aurelion_S2.ipynb`
 
 ### ✅ Funcionalidad  
 El programa se implementa como un **Jupyter Notebook**, no como un script de consola. Esto permite:
@@ -388,42 +406,7 @@ El programa se implementa como un **Jupyter Notebook**, no como un script de con
 
 ---
 
-## ✅ Conclusión
-
-El proyecto **“Tienda Aurelion”** demuestra cómo la **automatización del análisis de datos** puede transformar una empresa reactiva en una **organización orientada a datos**. Con herramientas accesibles como Python y GitHub Copilot, es posible generar insights estratégicos sin necesidad de infraestructura compleja.
-
-Este flujo de trabajo es **escalable, reproducible y listo para integrar modelos de Machine Learning** en futuras fases, como predicción de ventas o recomendación personalizada de productos.
-
----
-
-> ✅ **Nota final**: La documentación está acompañada por los archivos del proyecto en .docx, .pdf, .psc. El archivo `.ipynb` del proyecto también está incluido como evidencia técnica.
-
----
-
-### Próximos pasos
-
-Este análisis permitió consolidar múltiples fuentes de datos en un solo reporte integral. Se identificaron productos clave, vendedores destacados, diferencias entre sucursales y comportamiento de clientes frente a medios de pago.
-
-Además, se logró:
-
-- **Unificación de datos**: Integrar información de diversas tablas para obtener una vista completa del negocio.
-- **Análisis detallado**: Identificar patrones de ventas, ingresos por categoría y sucursal, y métodos de pago preferidos.
-- **Visualización efectiva**: Utilizar gráficos claros para comunicar hallazgos clave.
-
-Estos resultados son fundamentales para tomar decisiones estratégicas basadas en datos y optimizar procesos internos. El siguiente paso será profundizar en el análisis predictivo y explorar nuevas oportunidades de crecimiento.
-
-## Reflexiones y Próximos Pasos
-
-El análisis realizado en este notebook nos brinda una perspectiva integral sobre las ventas y el comportamiento de los clientes. Sin embargo, siempre hay espacio para mejorar:
-
-- **Profundizar en el análisis predictivo**: Utilizar modelos de machine learning para anticipar tendencias de ventas y comportamiento de clientes.
-- **Segmentación avanzada**: Identificar grupos de clientes con características similares para personalizar estrategias de marketing.
-- **Optimización de inventarios**: Analizar patrones de ventas para mejorar la gestión de stock y reducir costos.
-- **Visualizaciones interactivas**: Implementar dashboards dinámicos que permitan explorar los datos de manera más intuitiva.
-
-Estos pasos no solo fortalecerán la toma de decisiones, sino que también abrirán nuevas oportunidades para el crecimiento del negocio.
-
-# SPRING 2
+## SPRING 2
 # Desarrollo de aplicación de técnicas estadisticas:
   1. Base de datos limpia y lista
   2. Calcular estadísticas básicas calculadas
@@ -434,113 +417,205 @@ Estos pasos no solo fortalecerán la toma de decisiones, sino que también abrir
   7. Documentar
 
 
-## Resumen del Análisis Estadístico (SPRING 2)
+# Resumen Consolidado del Análisis Estadístico - Spring 2
 
-Esta sección presenta un resumen de los hallazgos clave obtenidos al aplicar diversas técnicas estadísticas a los datos consolidados en `df_master` durante el Spring 2. El objetivo fue caracterizar las variables numéricas, identificar distribuciones, analizar relaciones y detectar valores atípicos para una mejor comprensión del negocio.
+Este informe presenta los hallazgos clave del análisis estadístico,
+realizado sobre el dataset unificado `df_master` generado en el Spring 1, con el objetivo de comprender el comportamiento comercial mediante estadísticas
+descriptivas, identificación de outliers, correlaciones, intervalos de
+confianza, segmentación RFM, análisis de productos e interpretación
+temporal de ventas. Logrando construir una visión integral del negocio, automatizar procesos analíticos y generar insights relevantes para la toma de decisiones comerciales.
 
-### Estadísticas Descriptivas Clave
+## ✅ Logros destacados
 
-Las estadísticas descriptivas nos proporcionaron una visión general de las variables numéricas:
-
-| Estadístico          | cantidad | precio_unitario_x | importe | subtotal | monto_bruto | monto_neto | monto_final |
-|----------------------|----------|-------------------|---------|----------|-------------|------------|-------------|
-| **Count**            | 2016     | 2016.00           | 2016.00 | 2016.00  | 2016.00     | 2016.00    | 2016.00     |
-| **Mean**             | 2.68     | 31.45             | 83.86   | 82.92    | 279.66      | 279.66     | 82.06       |
-| **Std**              | 1.26     | 12.83             | 54.42   | 54.02    | 146.12      | 146.12     | 53.80       |
-| **Min**              | 1.00     | 2.72              | 2.72    | 2.72     | 2.72        | 2.72       | 2.72        |
-| **25%**              | 2.00     | 20.69             | 40.40   | 39.62    | 170.80      | 170.80     | 39.06       |
-| **50% (Median)**     | 3.00     | 32.04             | 76.40   | 74.31    | 261.70      | 261.70     | 73.08       |
-| **75%**              | 4.00     | 42.86             | 121.44  | 120.56   | 375.72      | 375.72     | 119.04      |
-| **Max**              | 5.00     | 49.82             | 249.10  | 248.65   | 786.51      | 786.51     | 248.65      |
-| **Skewness**         | 0.13     | -0.33             | 0.73    | 0.74     | 0.64        | 0.64       | 0.76        |
-| **Kurtosis**         | -1.14    | -0.92             | -0.24   | -0.21    | 0.13        | 0.13       | -0.18       |
-| **CV (%)**           | 46.95%   | 40.78%            | 64.90%  | 65.15%   | 52.25%      | 52.25%     | 65.56%      |
-
-* **Interpretación:** Las variables monetarias (`importe`, `subtotal`, `monto_final`, `monto_bruto`, `monto_neto`) muestran un sesgo positivo significativo (valores > 0.5 en Skewness) y alta variabilidad (CV > 50%), indicando que la mayoría de las transacciones son de bajo valor, pero existen algunas de alto valor. `cantidad` y `precio_unitario_x` son más simétricas y con menor variabilidad. Se observó que `monto_bruto` y `monto_neto` son idénticos en este dataset.
-
-### Detección de Outliers
-
-La detección de outliers mediante **IQR** y **Z-score** reveló la presencia de valores atípicos, especialmente en las variables monetarias y en la variable de descuento:
-
-| Variable                 | Método IQR (Conteo) | Método Z-score (`z > 3`) (Conteo) | % Outliers (IQR) |
-|--------------------------|---------------------|--------------------------------------|------------------|
-| `cantidad`               | 0                   | 0                                    | 0.00%            |
-| `precio_unitario_x`      | 0                   | 0                                    | 0.00%            |
-| `importe`                | 8                   | 6                                    | 0.40%            |
-| `subtotal`               | 8                   | 4                                    | 0.40%            |
-| `monto_bruto`            | 10                  | 10                                   | 0.50%            |
-| `monto_neto`             | 10                  | 10                                   | 0.50%            |
-| `monto_final`            | 8                   | 6                                    | 0.40%            |
-| `descuento_aplicado_pct` | 307                 | 40                                   | 15.23%           |
+| Dimensión | Resultado |
+|---|---|
+Consolidación de datos | Integración completa de **7 fuentes** en un DataFrame maestro de **2016 registros**  
+Estadística descriptiva | Identificación clara de rangos, variabilidad y distribución de variables clave  
+Análisis avanzado | Detección de outliers, correlaciones, intervalos de confianza y segmentación RFM  
+Modelado de clientes | Clasificación estadística de ** clientes activos** en cinco segmentos de valor  
+---
 
 
-* **Interpretación:** La presencia de outliers en variables monetarias resalta transacciones de alto valor que merecen investigación. La alta cantidad de outliers en `descuento_aplicado_pct` por IQR confirma su baja frecuencia, mientras que Z-score identifica los casos de descuento más extremos.
+## ✅ 1. Estadísticas Descriptivas
 
-### Análisis de Correlación
+El análisis descriptivo permitió caracterizar las principales variables
+numéricas. Se identificó alta variabilidad en las variables monetarias,
+así como distribuciones sesgadas hacia la derecha, indicando que pocas
+transacciones de alto valor explican gran parte de los ingresos. En
+contraste, las variables `cantidad` y `precio_unitario_x` muestran mayor
+estabilidad y simetría.
 
-Se analizó la correlación entre variables numéricas clave utilizando los métodos de Pearson y Spearman:
+### Indicadores Descriptivos Relevantes
 
-| Variables Relacionadas           | Correlación Pearson | Correlación Spearman |
-|-----------------------------------|---------------------|----------------------|
-| `cantidad` vs `importe`           | 0.71                | 0.71                 |
-| `precio_unitario_x` vs `importe`  | 0.63                | 0.64                 |
-| `cantidad` vs `precio_unitario_x` | -0.02               | -0.01                |
-| `importe` vs `monto_final`        | 0.99                | 0.99                 |
-| `monto_bruto` vs `monto_neto`     | 1.00                | 1.00                 |
+| Indicador | Resultado | Interpretación |
+|---|---|---|
+| Coeficiente de variación en montos | > 50% | Alta dispersión: las ventas presentan variabilidad considerable entre transacciones. |
+| Sesgo (Skewness) en montos | > 0.5 | Sesgo positivo: predominan ventas de bajo valor con presencia de operaciones de alto importe. |
+| Variables más estables | Cantidad y precio unitario | Distribución más homogénea y sin variaciones extremas significativas. |
 
-* **Interpretación:** Existe una fuerte correlación positiva entre las variables de monto a nivel de detalle y una correlación moderada a fuerte con la cantidad y precio unitario. La correlación débil entre cantidad y precio unitario sugiere que la cantidad comprada no depende fuertemente del precio unitario en un detalle de venta. Los resultados de Pearson y Spearman son consistentes.
 
-### Intervalos de Confianza (95%) para Métricas Clave
+### Comportamiento de las ventas
 
-Los intervalos de confianza proporcionan rangos estimados para las verdaderas medias poblacionales:
+| Métrica | Valor |
+|---|---|
+Ticket promedio por detalle | **$83.86**  
+Rango estimado (IC 95%) | **$81.48 – $86.24**  
+Cantidad promedio por ítem | **2.68 unidades**  
+Precio unitario promedio | **$31.45**  
 
-| Métrica                 | Media    | IC Inferior | IC Superior |
-|-------------------------|----------|-------------|-------------|
-| Importe por detalle     | $83.86   | $81.48      | $86.24      |
-| Cantidad por detalle    | 2.68     | 2.62        | 2.73        |
-| Precio unitario         | $31.45   | $30.89      | $32.01      |
-| Monto final por detalle | $82.06   | $79.71      | $84.41      |
-| Monto bruto por venta   | $279.66  | $273.28     | $286.04     |
-| Monto neto por venta    | $279.66  | $273.28     | $286.04     |
+> Las ventas unitarias son estables, con valores influenciados tanto por cantidad como por precio del producto.
 
-* **Interpretación:** Estos rangos nos dan una estimación de la precisión de las medias calculadas, indicando que con un 95% de confianza, la verdadera media poblacional de cada métrica se encuentra dentro del intervalo.
+-----------------------------------------------------------------------
 
-## Análisis RFM de Clientes
+### Interpretación de Distribuciones Numéricas
 
-La segmentación de clientes utilizando el análisis RFM (Recencia, Frecuencia, Valor Monetario) proporcionó insights sobre el comportamiento de compra:
 
-| Segmento    | Clientes | % Clientes | Valor Monetario Total | % del Total Valor | Valor Monetario Promedio |
-|-------------|----------|------------|-----------------------|-------------------|--------------------------|
-| Champions   | 24       | 24.2%      | $91,078.86            | 55.05%            | $3,794.95                |
-| Loyal       | 23       | 23.2%      | $34,074.97            | 20.60%            | $1,481.52                |
-| Potential   | 21       | 21.2%      | $22,764.99            | 13.76%            | $1,084.05                |
-| At Risk     | 15       | 15.2%      | $10,583.85            | 6.40%             | $705.59                  |
-| Lost        | 16       | 16.2%      | $6,937.50             | 4.19%             | $433.59                  |
 
-* **Interpretación:** Los segmentos Champions y Loyal, que representan menos del 50% de los clientes, generan más del 75% del valor monetario total. Esto resalta la importancia de enfocar estrategias en estos grupos de alto valor.
+<div style="display:flex; justify-content: center; gap:15px;">
+  <img src="box_plots.png" width="47%">
+  <img src="violin_plots.png" width="47%">
+</div>
+<br><br>
 
-### Análisis de Ingresos por Producto
+Las visualizaciones (Boxplot + Violin Plot) confirman patrones clave en las variables numéricas:
 
-La identificación de los productos que generan mayores ingresos totales y promedio por transacción es clave para la gestión de inventario y marketing:
+- Las variables monetarias muestran **fuerte sesgo positivo**, típico en ventas: muchas transacciones pequeñas y pocas de alto valor.
+- `descuento_aplicado_pct` presenta distribución **altamente sesgada y concentrada en 0**, reflejando uso poco frecuente del descuento.
+- `cantidad` y `precio_unitario_x` exhiben distribuciones más **estables y sin outliers relevantes** bajo IQR.
 
-| Producto                     | Ingresos Totales | Ingreso Promedio por Transacción | IC 95% Inferior | IC 95% Superior |
-|------------------------------|------------------|----------------------------------|-----------------|-----------------|
-| Sprite 1.5L                  | $4,269.04        | $158.11                          | $136.68         | $179.55         |
-| Empanadas Congeladas         | $3,057.92        | $152.90                          | $126.06         | $179.73         |
-| Desodorante Ambiente Aerosol | $3,048.50        | $127.02                          | $100.21         | $153.83         |
-| Pizza Congelada Muzzarella   | $2,914.48        | $126.72                          | $107.33         | $146.11         |
-| Pepsi 1.5L                   | $2,735.15        | $136.76                          | $110.42         | $163.10         |
+Estas formas de distribución respaldan las estadísticas descriptivas y guían decisiones de preparación de datos y selección de técnicas analíticas.
 
-* **Interpretación:** Estos productos son los principales impulsores de ingresos y deberían ser prioritarios en la gestión de stock y en las estrategias de promoción.
 
-### Análisis Temporal de Ventas
+## ✅ 2. Detección de Outliers
 
-El análisis de la evolución de las ventas a lo largo del tiempo reveló patrones importantes:
+Para identificar valores atípicos se aplicaron los métodos **IQR** y **Z-score**, enfocándonos en detectar transacciones inusuales y comportamientos anómalos en descuentos.
 
-* **Evolución de Ventas Semanales:** La serie temporal permite visualizar las fluctuaciones y la tendencia general de las ventas (desde enero 2023 a junio 2024). La media móvil ayuda a identificar la tendencia, y las bandas de confianza del 95% proporcionan un rango de predicción.
-* **Distribución de Importes por Año y Mes:** Los box plots muestran la distribución de los importes de venta en cada mes. Visualmente, no se observan cambios drásticos en la mediana o dispersión entre meses.
-* **Test de Kruskal-Wallis:** El test estadístico (p-value = 0.3878) sugiere que **no hay diferencias significativas** detectadas en la distribución de los importes de venta entre los diferentes meses en este dataset. Esto implicaría que, a nivel del valor de transacción individual, no hay una estacionalidad marcada en este período.
+| Variable | % Outliers | Observación |
+|---|---:|---|
+| Cantidad | 0% | No se observan cantidades fuera del comportamiento esperado. |
+| Precio Unitario | 0% | Los precios se mantienen dentro del rango normal de variación. |
+| Variables monetarias | **0.40% – 0.50%** | Pocas transacciones excepcionalmente altas, asociadas a compras grandes. |
+| Descuento aplicado | **15.23%** (307 casos) | El descuento es poco frecuente y en proporciones específicas. |
 
-* **Interpretación:** Aunque existen fluctuaciones semanales, la tendencia general de las ventas y la distribución de los importes por transacción no muestran diferencias significativas entre meses en el período analizado. Esto podría indicar un patrón de ventas relativamente estable a lo largo del año, o que la estacionalidad afecta más al volumen de transacciones que a su valor unitario.
+> **Interpretación:** Los valores monetarios muestran casos aislados de transacciones grandes, consistentes con ventas puntuales de alto valor. La mayoría de los outliers corresponde a la variable de descuento, indicando que solo se aplica en situaciones muy particulares y con baja recurrencia.
 
-Este resumen proporciona una visión concisa de los principales resultados estadísticos obtenidos, sentando las bases para la interpretación en el contexto del negocio y futuros análisis.
+
+------------------------------------------------------------------------
+
+## ✅ 3. Correlación entre Variables
+
+<p align="center"><b>Mapa de Calor de Correlaciones</b></p>
+<p align="center">
+  <img src="correlation_heatmap.png" alt="Mapa de Calor de Correlaciones" width="360">
+</p>
+
+
+
+Las correlaciones muestran relaciones clave entre las métricas comerciales, principalmente entre valores monetarios y cantidades vendidas.
+
+| Relación | Coeficiente | Interpretación |
+|---|---:|---|
+| Cantidad ↔ Importe | **0.71** | A mayor cantidad comprada, mayor importe de la venta. |
+| Precio Unitario ↔ Importe | **0.63** | Precios más altos tienden a generar tickets de mayor valor. |
+| Importe ↔ Monto Final | **0.99** | El monto final prácticamente coincide con el importe calculado. |
+| Monto Bruto ↔ Monto Neto | **1.00** | No existen diferencias entre monto bruto y neto (sin descuentos). |
+
+> **Conclusión:** Las relaciones monetarias son altamente consistentes, mientras que la cantidad y el precio unitario influyen significativamente pero no determinan por completo el valor total de la venta.
+
+
+------------------------------------------------------------------------
+
+## ✅ 4. Intervalos de Confianza (95%)
+
+**Monto final por detalle de venta:** - Media: \$82.06\
+- IC 95%: \$79.71 --- \$84.41
+
+Los intervalos estiman con precisión las verdaderas medias poblacionales
+de las principales métricas.
+
+------------------------------------------------------------------------
+
+## ✅ 5. Segmentación RFM
+
+La segmentación RFM permitió clasificar a los clientes según su **recencia**, **frecuencia** y **monto gastado**, identificando los grupos más valiosos para el negocio.
+
+<p align="center">
+  <a href="viz_rfm_formal.png">
+    <img src="viz_rfm_formal.png" alt="Diagrama de Flujo" width="550">
+  </a>
+</p>
+
+| Segmento | % Clientes | % Ingresos | Ticket Promedio |
+|---|---:|---:|---:|
+| Champions | **24%** | **55%** | $3,794.95 |
+| Loyal | 23% | 21% | $1,481.52 |
+| Potential | 21% | 14% | $1,084.05 |
+| At Risk | 15% | 6% | $705.59 |
+| Lost | 16% | 4% | $433.59 |
+
+> **Interpretación:** Los segmentos **Champions** y **Loyal**, que representan cerca del 47% de la base de clientes, generan más del **75% de los ingresos**. Estos grupos deben ser prioritarios en estrategias de fidelización, retención y ofertas personalizadas.
+------------------------------------------------------------------------
+
+## ✅ 6. Análisis de Ingresos por Producto
+El análisis de ingresos por producto reveló que un pequeño grupo de productos contribuye significativamente a los ingresos totales.
+<p align="center">
+  <a href="viz_productos_avanzado.png">
+    <img src="viz_productos_avanzado.png" alt="Ingresos por Producto" width="500">
+  </a>
+</p>
+
+| Producto | Total Ingresos |
+|---|---|
+Sprite 1.5L | **$4,269.04**  
+Empanadas Congeladas | **$3,057.92**  
+Desodorante Ambiente Aerosol | **$3,048.50**  
+Pizza Congelada Muzzarella | **$2,914.48**  
+Pepsi 1.5L | **$2,735.15**  
+
+> Bebidas y congelados lideran la venta total y por ticket.
+
+------------------------------------------------------------------------
+
+## ✅ 7. Análisis Temporal de Ventas
+
+<p align="center">
+  <a href="viz_temporal_avanzado.png">
+    <img src="viz_temporal_avanzado.png" alt="Análisis Temporal de Ventas" width="500">
+  </a>
+</p>
+
+El comportamiento de las ventas a lo largo del tiempo muestra una dinámica estable, sin patrones estacionales pronunciados:
+
+- Se observan fluctuaciones semanales normales, sin cambios estructurales en la tendencia general.
+- La distribución mensual de los importes no presenta variaciones significativas entre periodos.
+- La prueba estadística **Kruskal-Wallis** (p = 0.3878) confirma la **ausencia de estacionalidad relevante**, indicando que el comportamiento de las ventas no depende significativamente del mes, sujeta a revisión.
+
+> **Conclusión:** El flujo de ventas parece mantener estabilidad, lo que sugiere una demanda constante, pudiendo estar influenciada por factores externos no capturados en el dataset actual.
+
+------------------------------------------------------------------------
+
+### ✅ Conclusiones Generales
+
+- Estabilidad en el comportamiento temporal de las ventas, sin estacionalidad significativa.
+- Alta concentración del valor generado en un grupo reducido de clientes y productos estratégicos.
+- Relevancia de monitorear descuentos y transacciones atípicas para garantizar control y consistencia en las ventas.
+- Enfoque prioritario en clientes de alto valor para maximizar la rentabilidad y fomentar la fidelización.
+- Toma de decisiones respaldada por evidencia estadística y análisis riguroso.
+- Identificación clara de segmentos y líneas de producto clave para acciones comerciales dirigidas.
+- Base sólida para el desarrollo de modelos predictivos y estrategias de crecimiento orientadas a datos.
+
+
+## ✅ Próximos Pasos
+
+| Enfoque | Acciones propuestas |
+|---|---|
+**Predicción** | Modelos de *forecasting* para proyección de ventas; *Churn prediction* utilizando modelos supervisados (Logistic Regression, Random Forest, XGBoost) para anticipar pérdida de clientes. |
+**Segmentación Avanzada** | Extender análisis RFM con *clustering* (K-Means, DBSCAN) para identificar microsegmentos de clientes y patrones no visibles con reglas tradicionales. |
+**Marketing Personalizado** | Campañas orientadas a segmentos clave con estrategias diferenciadas: retención (Champions, Loyal), reactivación (At-Risk, Lost). |
+**Control de Descuentos** | Implementar reglas dinámicas y análisis de sensibilidad del descuento (*price elasticity*). |
+**Detección de Anomalías** | Aplicar modelos de *anomaly detection* (Isolation Forest, Z-score dinámico) para identificar transacciones inusuales o fraudes. |
+**Visualización y Reporting** | Construcción de dashboard ejecutivo (Power BI / Streamlit) con alertas automáticas y seguimiento de KPIs clave. |
+**Automatización** | Pipeline de actualización automática de datos y reportes programados. |
+
+> **Objetivo central:** evolucionar de análisis descriptivo a **análisis predictivo y prescriptivo**, aplicacando las mejores acciones propuestas para fortalecer la toma de decisiones basada en datos y potenciando el crecimiento del negocio.
+
