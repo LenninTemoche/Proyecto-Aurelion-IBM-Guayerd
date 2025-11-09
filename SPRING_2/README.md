@@ -1,14 +1,7 @@
----
-title: "Reporte del Proyecto"
-author: "Lennin"
-format:
-  pdf: default
----
-
 ## ✅ Proyecto Aurelion – Análisis Inteligente de Ventas
 **Fundamentos de Inteligencia Artificial — IBM SkillsBuild**
  
-## **Grupo 06**   
+- **Alumno**: Lennin Billey Temoche Gómez
 - **Curso**: Fundamentos de Inteligencia Artificial
 - **Camada**: 11 martes 
 - **Docente**: Mirta Gladys Julio  
