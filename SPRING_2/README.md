@@ -620,11 +620,11 @@ El análisis comparativo entre los años 2023 y 2024 revela:
 
 
 El análisis de ventas por rango etario indica que:
-- Los clientes en el rango de **26-35 años** representan la mayor proporción de ventas, seguidos por los de **36-45 años**.
+- Los clientes en el rango de **26-40 años** representan la mayor proporción de ventas, seguidos por los de **41 a 55 años**.
 - Los rangos etarios más jóvenes (18-25 años) y mayores (56+ años) contribuyen menos a las ventas totales.
 
 
-> **Conclusión:** Las estrategias de marketing y promociones deberían enfocarse en los grupos de edad más activos (26-45 años) para maximizar el impacto en las ventas.
+> **Conclusión:** Las estrategias de marketing y promociones deberían enfocarse en los grupos de edad más activos (26-55 años) para maximizar el impacto en las ventas.
 ------------------------------------------------------------------------  
 
 
