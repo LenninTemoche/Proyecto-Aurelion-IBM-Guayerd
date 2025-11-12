@@ -586,24 +586,32 @@ El comportamiento de las ventas a lo largo del tiempo muestra una dinámica esta
 > **Conclusión:** El flujo de ventas parece mantener estabilidad, lo que sugiere una demanda constante, pudiendo estar influenciada por factores externos no capturados en el dataset actual.
 
 ------------------------------------------------------------------------
+
 ## ✅ 8. Análisis Comparativo de Ventas (2023 vs. 2024)
+
+
 <p align="center">
-  <a href="sales_by_product_comparison.f">
-    <img src="sales_by_product_comparison.png" alt="Análisis Comparativo de Ventas" width="500">
+  <a href="ventas_por_producto_comparacion.png">
+    <img src="ventas_por_producto_comparacion.png" alt="Análisis Comparativo de Ventas" width="500">
   </a>
 </p>
+
 
 
 
 El análisis comparativo entre los años 2023 y 2024 revela:
  -  **Crecimiento moderado** en ventas totales, con un aumento del **8.5%** en ingresos.
 - Productos clave como **Sprite 1.5L** y **Empanadas Congeladas** mantienen su liderazgo en ventas.
-- La distribución de ventas por categoría se mantiene relativamente constante, sin cambios significativos en las preferencias de los clientes.  
+- La distribución de ventas por categoría se mantiene relativamente constante, sin cambios significativos en las preferencias de los clientes.
+
+
+
 > **Interpretación:** La tienda Aurelion muestra un crecimiento sostenido, con productos estrella que continúan impulsando las ventas. La estabilidad en las preferencias sugiere una base de clientes leales.
 ------------------------------------------------------------------------
 
 
 ## ✅ 9 Análisis de ventas por rango etario de clientes
+
 <p align="center">
   <a href="consumo_edad_rango_comparativo.png">
     <img src="consumo_edad_rango_comparativo.png" alt="Análisis de Ventas por Rango Etario" width="500">
@@ -614,6 +622,8 @@ El análisis comparativo entre los años 2023 y 2024 revela:
 El análisis de ventas por rango etario indica que:
 - Los clientes en el rango de **26-35 años** representan la mayor proporción de ventas, seguidos por los de **36-45 años**.
 - Los rangos etarios más jóvenes (18-25 años) y mayores (56+ años) contribuyen menos a las ventas totales.
+
+
 > **Conclusión:** Las estrategias de marketing y promociones deberían enfocarse en los grupos de edad más activos (26-45 años) para maximizar el impacto en las ventas.
 ------------------------------------------------------------------------  
 
