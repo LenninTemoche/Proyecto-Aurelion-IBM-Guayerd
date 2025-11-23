@@ -218,7 +218,7 @@ Desarrollar e implementar modelos de **Machine Learning** que permitan a la tien
 
 ### Dataset Base
 
-**Fuente**: `df_master_refined.xlsx`  
+**Fuente**: `df_master_refined.xlsx` obtenido en la etapa de preparación de datos
 **Registros**: 2,013 transacciones  
 **Features disponibles**: 38 variables (numéricas, categóricas, temporales, booleanas)
 
