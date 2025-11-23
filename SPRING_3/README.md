@@ -2,7 +2,7 @@
 
 **Fundamentos de Inteligencia Artificial — IBM SkillsBuild**
 
-- **Grupo 06**
+- **Alumno**: Lennin Billey Temoche Gómez
 - **Curso**: Fundamentos de Inteligencia Artificial
 - **Camada**: 11 - Martes
 - **Docente**: Mirta Gladys Julio
@@ -963,9 +963,9 @@ Dashboard Ejecutivo (actualización automática):
 
 ---
 
-**Proyecto desarrollado por**: **Grupo 6**  
+**Proyecto desarrollado por**: **Lennin Billey Temoche Gómez**  
 **Curso**: Fundamentos de Inteligencia Artificial — IBM SkillsBuild  
-**Camada**: 11 (Martes)  
+**Camada**: 11 - Martes
 **Docente**: Mirta Gladys Julio  
 **Fecha de entrega**: 24 de Noviembre de 2025  
 **Modelos implementados**: 4 modelos predictivos + 1 modelo de clustering  
