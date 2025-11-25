@@ -10,7 +10,7 @@
 
 ---
 
-## Resumen Ejecutivo del Proyecto
+## Documentación del Proyecto
 
 ### Evolución del Proyecto: De Datos Crudos a Modelos Predictivos
 
@@ -64,64 +64,7 @@ Este proyecto representa un viaje completo de transformación de datos en inteli
 1. **Regresión** - Predicción de `monto_final` (Random Forest, KNN, Regresión Lineal)
 2. **Clasificación** - Predicción de `edad_rango` (LightGBM, XGBoost, Random Forest, Decision Tree)
 3. **Clasificación** - Predicción de `categoria` (LightGBM, XGBoost, Random Forest, Logistic Regression)
-4. **Clasificación** - Identificación de `es_venta_premium` (LightGBM, XGBoost, Random Forest, GradientBoosting)
-5. **Clustering** - Segmentación de clientes con K-Means (análisis RFM)
-
-## Resumen Ejecutivo del Proyecto
-
-### Evolución del Proyecto: De Datos Crudos a Modelos Predictivos
-
-Este proyecto representa un viaje completo de transformación de datos en inteligencia de negocio, estructurado en tres etapas progresivas:
-
-#### **SPRING 1: Consolidación y Análisis Descriptivo** ✅
-
-**Objetivo**: Transformar datos dispersos en información consolidada y accionable.
-
-**Logros clave**:
-
-- ✅ Integración de **7 fuentes de datos** (clientes, productos, ventas, sucursales, vendedores, medios de pago) en un DataFrame maestro unificado de **2,016 registros**
-- ✅ Limpieza y optimización de datos: eliminación de duplicados, manejo de nulos, conversión de tipos de datos
-- ✅ Ingeniería de características: variables temporales, descuentos categorizados, montos finales calculados
-- ✅ Análisis descriptivo automatizado respondiendo preguntas clave del negocio (productos top, clientes VIP, ventas por categoría, evolución temporal)
-- ✅ Visualizaciones interactivas con `matplotlib` y `seaborn`
-
-**Resultado**: Dataset `df_master_refined.xlsx` listo para análisis avanzado.
-
----
-
-#### **SPRING 2: Análisis Estadístico Avanzado** ✅
-
-**Objetivo**: Profundizar en patrones estadísticos y segmentar clientes estratégicamente.
-
-**Técnicas aplicadas**:
-
-- ✅ **Estadística descriptiva**: Mean, median, std, coeficientes de variación, skewness, kurtosis
-- ✅ **Detección de outliers**: Métodos IQR y Z-score (identificación de transacciones atípicas)
-- ✅ **Análisis de correlaciones**: Pearson y Spearman entre variables numéricas clave
-- ✅ **Intervalos de confianza**: Estimación de rangos para montos de venta (95% CI)
-- ✅ **Segmentación RFM**: Clasificación de clientes en 5 segmentos (Champions, Loyal, Potential, At-Risk, Lost)
-- ✅ **Análisis de productos**: Identificación de productos estrella por ingresos
-- ✅ **Análisis temporal**: Evaluación de estacionalidad y tendencias (Kruskal-Wallis test)
-
-**Hallazgos principales**:
-
-- 47% de clientes (Champions + Loyal) generan **75% de los ingresos**
-- Alta concentración de valor en productos específicos (Sprite 1.5L, Empanadas Congeladas)
-- Ventas estables sin estacionalidad significativa
-- Ticket promedio: **$83.86** (IC 95%: $81.48 - $86.24)
-
----
-
-#### **SPRING 3: Implementación de Machine Learning** ✅ (ACTUAL)
-
-**Objetivo**: Desarrollar modelos predictivos y de clustering para optimizar decisiones de negocio.
-
-**Modelos implementados**:
-
-1. **Regresión** - Predicción de `monto_final` (Random Forest, KNN, Regresión Lineal)
-2. **Clasificación** - Predicción de `edad_rango` (LightGBM, XGBoost, Random Forest, Decision Tree)
-3. **Clasificación** - Predicción de `categoria` (LightGBM, XGBoost, Random Forest, Logistic Regression)
-4. **Clasificación** - Identificación de `es_venta_premium` (LightGBM, XGBoost, Random Forest, KNN)
+4. **Clasificación** - Identificación de `es_venta_premium` (LightGBM, XGBoost, Random Forest, K-NearestNeighbors)
 5. **Clustering** - Segmentación de clientes con K-Means (análisis RFM)
 
 **Herramientas utilizadas**:
@@ -195,7 +138,7 @@ Desarrollar e implementar modelos de **Machine Learning** que permitan a la tien
 
 4. ENTRENAMIENTO
 
-   - Modelos: Random Forest, LightGBM, XGBoost, etc.
+   - Modelos: Decision Tree, Random Forest, Regresión Lineal, Regresión Logística, LightGBM, XGBoost, K-Nearest Neighbors.
    - Validación cruzada (5-fold)
 
 5. EVALUACIÓN
@@ -216,9 +159,9 @@ Desarrollar e implementar modelos de **Machine Learning** que permitan a la tien
 
 ## Preparación de Datos
 
-### Dataset Base
+### DataSet Optimizado
 
-**Fuente**: `df_master_refined.xlsx` obtenido en la etapa de preparación de datos
+**Fuente**: `df_master_refined` obtenido en la etapa de preparación de datos
 **Registros**: 2,013 transacciones  
 **Features disponibles**: 38 variables (numéricas, categóricas, temporales, booleanas)
 
@@ -252,7 +195,7 @@ Se aplicaron las siguientes transformaciones:
 - `es_venta_premium`
 - `tiene_descuento`
 - `activo_como_cliente`
-- `activo` (vendedor)
+- `activo`
 - `es_outlier_monto`
 
 ### Técnicas de Preprocesamiento
@@ -274,7 +217,7 @@ Se aplicaron las siguientes transformaciones:
 
 #### Descripción
 
-Modelo de **regresión** para predecir el `monto_final` de una venta basándose en características del cliente, producto y transacción.
+Modelo de **regresión lineal** para predecir el `monto_final` de una venta basándose en características del cliente, producto y transacción.
 
 #### Variable Objetivo
 
@@ -282,11 +225,11 @@ Modelo de **regresión** para predecir el `monto_final` de una venta basándose 
 
 #### Algoritmos Comparados
 
-| Algoritmo                   | Tipo                 | Características                           |
-| --------------------------- | -------------------- | ----------------------------------------- |
-| **Regresión Lineal**        | Paramétrico          | Modelo base, asume relación lineal        |
-| **Random Forest Regressor** | Ensemble (Bagging)   | Robusto, maneja no-linealidad             |
-| **K-Nearest Neighbors**     | Basado en instancias | Sensible a escala, requiere normalización |
+| Algoritmo                         | Tipo                 | Características                           |
+| --------------------------------- | -------------------- | ----------------------------------------- |
+| **Regresión Lineal**              | Paramétrico          | Modelo base, asume relación lineal        |
+| **Random Forest Regressor**       | Ensemble (Bagging)   | Robusto, maneja no-linealidad             |
+| **K-Nearest Neighbors Regressor** | Basado en instancias | Sensible a escala, requiere normalización |
 
 #### Resultados
 
@@ -804,14 +747,9 @@ IMPACTO ESPERADO: -20% costos de inventario
 
 **Implementación en tiempo real**:
 
-```python
-CUANDO: monto_neto del carrito > umbral_premium
-  APLICAR: Modelo LightGBM venta premium
-  SI probabilidad > 0.85:
-    ACTIVAR: Alerta a vendedor/supervisor
-    OFRECER: Atención VIP inmediata
-    SUGERIR: Productos complementarios premium
-```
+- Implementación de alertas automáticas para clientes VIP
+- Notificaciones de reactivación para clientes inactivos
+- Sugerencias de productos personalizados basados en comportamiento
 
 **Acciones concretas**:
 
@@ -949,6 +887,11 @@ Dashboard Ejecutivo (actualización automática):
 - `sklearn.metrics`: accuracy_score, f1_score, precision_score, recall_score, mean_squared_error, r2_score
 - `sklearn.model_selection`: train_test_split, cross_val_score, GridSearchCV
 
+**Agentes IA**:
+
+- GitHub Copilot
+- Gemini Flash 2.5
+
 ---
 
 ### Entregables del Proyecto
@@ -961,12 +904,84 @@ Dashboard Ejecutivo (actualización automática):
 | **Imágenes ML**        | Visualizaciones de resultados (matrices confusión, importancia, etc.) | `imgs_ml_prediction/`                             |
 | **Documentación**      | README completo con metodología y resultados                          | `README.md`                                       |
 
+## Métricas Alcanzadas
+
+### Performance por Modelo
+
+<div align="center">
+
+#### Modelos de Clasificación
+
+| Modelo            | Problema      | Accuracy  | F1-Score | Performance |
+| :---------------- | :------------ | :-------: | :------: | :---------- |
+| **LightGBM**      | Venta Premium | **99.3%** |  0.992   | Excelente   |
+| **LightGBM**      | Categoría     | **84.9%** |  0.847   | Muy Bueno   |
+| **LightGBM**      | Edad          | **78.9%** |  0.761   | Bueno       |
+| **XGBoost**       | Venta Premium | **98.5%** |  0.984   | Muy Bueno   |
+| **XGBoost**       | Edad          | **78.9%** |  0.749   | Bueno       |
+| **Random Forest** | Venta Premium | **96.8%** |  0.960   | Muy Bueno   |
+
+#### Modelos de Regresión
+
+| Modelo               | Variable    |    RMSE    |  MAE   |    R²     | Performance |
+| :------------------- | :---------- | :--------: | :----: | :-------: | :---------- |
+| **Random Forest**    | Monto Final | **$10.87** | $4.23  | **0.982** | Excelente   |
+| **KNN**              | Monto Final |   $18.75   | $9.68  |   0.947   | Muy Bueno   |
+| **Regresión Lineal** | Monto Final |   $17.92   | $11.36 |   0.951   | Muy Bueno   |
+
+#### Segmentación de clientes con Kmeans
+
+Clientes segmentados en **2 grupos óptimos** según análisis RFM:
+
+<div align="center">
+
+| Cluster           | % Clientes | % Ingresos | Valor Promedio | Ratio Valor/Cliente |
+| :---------------- | :--------: | :--------: | :------------: | :-----------------: |
+| **0 - VIP**       |  **48%**   |  **75%**   |   $3,166.87    |  **6.6x superior**  |
+| **1 - Inactivos** |  **52%**   |  **25%**   |   $1,308.52    |   Referencia base   |
+
+</div>
+
+**Interpretación**:
+
+- **Menos de la mitad de los clientes (48%) generan tres cuartas partes (75%) de los ingresos totales**
+- **Prioridad estratégica**: Retener y expandir el Cluster 0 tiene impacto directo en rentabilidad
+
+---
+
+</div>
+
+### Interpretación de Resultados
+
+**🔹 Mejores Modelos Identificados**:
+
+- **LightGBM**: Domina en todos los problemas de clasificación (3 de 3)
+- **XGBoost**: Segundo lugar consistente con excelentes métricas
+- **Random Forest**: Líder absoluto en regresión con R² de 0.982
+- **Kmeans**: Identificación de 2 grupos óptimos según análisis RFM
+
+**🔹 Métricas destacadas**:
+
+- ✅ **Accuracy promedio consolidado**: **87.7%** (Edad: 78.9% + Categoría: 84.9% + Premium: 99.3%) / 3
+- ✅ **F1-Score promedio consolidado**: **0.867** (0.761 + 0.847 + 0.992) / 3
+- ✅ **R² máximo alcanzado**: **0.982** en predicción de monto final
+
+**🔹 Casos de uso validados**:
+
+- Predicción de ingresos (R² 98.2%)
+- Sistema de recomendaciones (84.9% accuracy)
+- Detección de clientes VIP (99.3% accuracy)
+- Segmentación demográfica (78.9% accuracy)
+- Identificación de segmentos de alto valor (6.6x superior)
+
+---
+
 ---
 
 **Proyecto desarrollado por**: **Lennin Billey Temoche Gómez**  
 **Curso**: Fundamentos de Inteligencia Artificial — IBM SkillsBuild  
-**Camada**: 11 - Martes
+**Camada**: 11 - Martes  
 **Docente**: Mirta Gladys Julio  
-**Fecha de entrega**: 24 de Noviembre de 2025  
-**Modelos implementados**: 4 modelos predictivos + 1 modelo de clustering  
-**Métricas alcanzadas**: Accuracy promedio 87.7% | R² 0.982 | F1-Score promedio 0.84
+**Fecha de entrega**: 23 de Noviembre de 2025
+
+---
