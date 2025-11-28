@@ -235,9 +235,9 @@ Modelo de **regresión lineal** para predecir el `monto_final` de una venta bas�
 
 | Modelo            |        R² |       RMSE |       MAE | Interpretación                                     |
 | ----------------- | --------: | ---------: | --------: | -------------------------------------------------- |
-| **Random Forest** | **0.982** | **$10.87** | **$4.23** | Excelente predicción, explica 98.2% de la varianza |
-| Regresión Lineal  |     0.951 |     $17.92 |    $11.36 | Buen rendimiento, modelo interpretable             |
-| KNN               |     0.947 |     $18.75 |     $9.68 | Buen rendimiento, requiere más datos               |
+| **Random Forest** | **0.982** | **10.87** | **4.23** | Excelente predicción, explica 98.2% de la varianza |
+| Regresión Lineal  |     0.951 |     17.92 |    11.36 | Buen rendimiento, modelo interpretable             |
+| KNN               |     0.947 |     18.75 |     9.68 | Buen rendimiento, requiere más datos               |
 
 #### Variables Más Importantes (Random Forest)
 
